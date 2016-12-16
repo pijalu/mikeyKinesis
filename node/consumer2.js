@@ -10,7 +10,9 @@ function getData(shardIterator) {
 		if (err) {
 			console.log(err, err.stack); // an error occurred
 		} else {
-			if (recordsData.Records.length>0) console.log(recordsData.Records); // successful response
+			recordsData.Records.forEach(rec => {
+				 console.log(/*rec, '=',*/ rec.Data.toString()); // successful response
+			});
 			setTimeout(function() {
 				getData(recordsData.NextShardIterator);
 			},1000);
@@ -28,11 +30,11 @@ function getStreamData(shard) {
     if (err) {
       console.log(err, err.stack); // an error occurred
     } else {
-			getData(shardIteratordata.ShardIterator);			
+			getData(shardIteratordata.ShardIterator);
 		}
 	});
 }
-													 
+
 console.log("Starting !");
 	kinesis.describeStream({
 		StreamName: streamName
@@ -44,5 +46,3 @@ console.log("Starting !");
 			});
 		}
 	});
-
-
