@@ -9,7 +9,7 @@ var params = {
 };
 kinesis.createStream(params, function(err, data) {
 	if (err) {
-		console.log("Stream already exists"); //, err.stack);
+		console.log("Stream Create error", err, err.stack);
 	}
 	else {
 		console.log("Created stream", data);
