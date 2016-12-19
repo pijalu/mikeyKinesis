@@ -8,6 +8,7 @@
 				"produce": "node index.js",
 				"consume": "node consumer.js",
 				"consume2": "node consumer2.js",
+				"consume3": "node consumer3.js",
 				"list":"node liststream.js"
 	},
   "author": "",
